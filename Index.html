@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Project 3 Course 9</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Project 3 Course 9">
+  <meta name="author" content="Jean-Michel Dube">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Project 3 Course 9</h1>
+    <h2>Creating a shiny app</h2>
+    <p>Jean-Michel Dube<br/>Marketer</p>
+  </hgroup>
+    <a href="https://github.com/JeanMichelDube/Course9Project2/zipball/gh-pages" class="example">
+     Download
+    </a>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Introduction</h2>
+  </hgroup>
+  <article data-timings="">
+    <blockquote>
+<p>With this shiny app, we want to predict the duration of on an eruption based on the wait time of the Old faithfulh geyser in Yellowstone National Park, Wyoming USA.</p>
+
+<p>The user can select the wait time for which he would like us to predict the duration of the eruption.</p>
+
+<p>The user can than choose between two models for the prediction. Model 1 is a standard linear model.For model 2, we decided to trace a linear model for wait times from 40 to 65 and combine a second linear model for wait times over 65.</p>
+
+<p>This shiny app will be useful to the Old faithful geyser employees in order to help them coordinate their work. The app is quite easy to use as well.</p>
+
+<p>Here is a link to the app : <a href="https://jeanmicheldube.shinyapps.io/AppforProject3/">https://jeanmicheldube.shinyapps.io/AppforProject3/</a></p>
+</blockquote>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Data</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>We decided to work with the data &quot;faithful&quot; provided in R Studio. Here is a summary of the data:</p>
+
+<pre><code class="r">summary(faithful)
+</code></pre>
+
+<pre><code>##    eruptions        waiting    
+##  Min.   :1.600   Min.   :43.0  
+##  1st Qu.:2.163   1st Qu.:58.0  
+##  Median :4.000   Median :76.0  
+##  Mean   :3.488   Mean   :70.9  
+##  3rd Qu.:4.454   3rd Qu.:82.0  
+##  Max.   :5.100   Max.   :96.0
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Model 1</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Here is a representation of the standard linear model we used as our first model.</p>
+
+<iframe src="demo.html" style="position:absolute;height:80%;width:80%"></iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Model 2</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Here is a representation of our second model. It is a combination of 2 linear models.</p>
+
+<iframe src="demo1.html" style="position:absolute;height:80%;width:80%"></iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Introduction'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Data'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Model 1'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Model 2'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
