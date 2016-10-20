@@ -23,14 +23,16 @@ shinyUI(fluidPage(
                   value = 50),
       p("Next, you can select from with which model you would like us to predict the duration."),
       p("Model 1 is a standard linear model."),
-      p("For model 2, we decided to trace a linear model for wait times from 40 to 65 and combine second linear model for wait times over 65."),
+      p("For model 2, we decided to trace a linear model for wait times from 40 to 65 and combine a second linear model for wait times over 65."),
     
     selectInput("model", "Choose a model:", 
                 choices = c("model 1" = "model1", "model 2" = "model2"))
   ),
     # Show a plot of the generated distribution
     mainPanel(
-      plotOutput("distPlot")
+      h1("Visual representation of the model and the prediction"),
+      plotOutput("distPlot"),
+      "Predicted eruption time: ", verbatimTextOutput("predValue")
     )
   )
 ))

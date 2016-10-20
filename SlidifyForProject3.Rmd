@@ -1,0 +1,72 @@
+---
+title       : Project 3 Course 9
+subtitle    : Creating a shiny app
+author      : Jean-Michel Dube
+job         : Marketer
+framework   : io2012    # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+github:
+  user: JeanMichelDube
+  repo: Course9Project3
+  
+---
+
+## Introduction
+
+> With this shiny app, we want to predict the duration of on an eruption based on the wait time of the Old faithfulh geyser in Yellowstone National Park, Wyoming USA.
+
+> The user can select the wait time for which he would like us to predict the duration of the eruption.
+
+> The user can than choose between two models for the prediction. Model 1 is a standard linear model.For model 2, we decided to trace a linear model for wait times from 40 to 65 and combine a second linear model for wait times over 65.
+
+> This shiny app will be useful to the Old faithful geyser employees in order to help them coordinate their work. The app is quite easy to use as well.
+
+> Here is a link to the app : https://jeanmicheldube.shinyapps.io/AppforProject3/
+
+---
+
+## Data
+
+We decided to work with the data "faithful" provided in R Studio. Here is a summary of the data:
+
+```{r}
+summary(faithful)
+```
+
+---
+
+## Model 1
+
+Here is a representation of the standard linear model we used as our first model.
+
+```{r, message=FALSE, echo=FALSE, error=FALSE, warning=FALSE}
+library(plotly)
+library(ggplot2)
+p <- qplot(waiting, eruptions, geom = 'point', data = faithful)+geom_smooth(method = "lm", se = FALSE, size = 1)
+plotjm=ggplotly(p)
+htmlwidgets::saveWidget(as.widget(plotjm), file = "demo.html")
+```
+<iframe src="demo.html" style="position:absolute;height:80%;width:80%"></iframe>
+
+---
+
+## Model 2
+
+Here is a representation of our second model. It is a combination of 2 linear models.
+
+```{r, message=FALSE, echo=FALSE, error=FALSE, warning=FALSE}
+library(plotly)
+library(ggplot2)
+bmodel2 <- lm(eruptions~(waiting<65)*waiting + (waiting>=65)*waiting, data=faithful)
+  x<-seq(min(35), max(105),1)
+  ndf <- data.frame(waiting=x)
+  ndf$eruptions = predict(bmodel2, ndf)
+pp <- qplot(waiting, eruptions, geom = 'point', data = faithful)+geom_line(ndf, mapping=(aes(x=waiting, y=eruptions)), colour="blue",size = 1)
+plotjmd=ggplotly(pp)
+htmlwidgets::saveWidget(as.widget(plotjmd), file = "demo1.html")
+```
+<iframe src="demo1.html" style="position:absolute;height:80%;width:80%"></iframe>
